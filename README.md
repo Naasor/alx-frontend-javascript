@@ -1,3 +1,4 @@
 # ALX FRONTEND JAVASCRIPT
 
 - ES6 Basics
+- ES6 Promise
