@@ -22,31 +22,41 @@ const student2: Student = {
 const studentsList: Student[] = [student1, student2];
 
 const table = document.createElement('table');
-const tbody = document.createElement('tbody');
-
-table.style.background = "cyan";
-table.appendChild(tbody);
-
-studentsList.forEach((student: Student): void => {
-const row = document.createElement('tr');
+const headerRow = document.createElement('tr');
 const header1 = document.createElement('th');
 const header2 = document.createElement('th');
-const nameCell = document.createElement('td');
-const locationCell = document.createElement('td');
 
 header1.textContent = 'First Name';
 header2.textContent = 'Location';
-nameCell.textContent = student.firstName;
-locationCell.textContent = student.location;
 
-nameCell.style.border = "1px solid pink";
-locationCell.style.border = "1px solid pink";
-nameCell.style.padding = "5px";
-locationCell.style.padding = "5px";
+headerRow.appendChild(header1);
+headerRow.appendChild(header2);
+table.appendChild(headerRow);
 
-row.appendChild(nameCell);
-row.appendChild(locationCell);
-tbody.appendChild(row);
+studentsList.forEach(student => {
+    const row = document.createElement('tr');
+    const firstNameCell = document.createElement('td');
+    const locationCell = document.createElement('td');
+
+    firstNameCell.textContent = student.firstName;
+    locationCell.textContent = student.location;
+
+    row.appendChild(firstNameCell);
+    row.appendChild(locationCell);
+    table.appendChild(row);
+
+    firstNameCell.style.border = "1px solid pink";
+    locationCell.style.border = "1px solid pink";
+    firstNameCell.style.padding = "5px";
+    locationCell.style.padding = "5px";
 });
+
+
+table.style.background = "";
+headerRow.style.background = "Yellow";
+header1.style.padding = "5px";
+header2.style.padding = "5px";
+
+
 
 document.body.appendChild(table);
